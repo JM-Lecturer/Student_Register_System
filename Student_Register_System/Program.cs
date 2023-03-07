@@ -15,9 +15,31 @@
 
             }
 
-            Console.WriteLine("\nPlease enter your selection from the list provided: \n");
-            int menuChoice = Convert.ToInt16(Console.ReadLine());
-            Console.Clear();
+            int menuChoice = 0;
+
+            try
+            {
+
+                Console.WriteLine("\nPlease enter your selection from the list provided: \n");
+                menuChoice = Convert.ToInt16(Console.ReadLine());
+                Console.Clear();
+
+                if (menuChoice < 1 || menuChoice >= menuItems.Length)
+                {
+
+                    throw new Exception();
+
+                }
+
+            }
+            catch
+            {
+
+                Console.WriteLine("Sorry, an unexpected error has occured. Please try again...\n[Press Enter to Try Again]");
+                Console.ReadLine();
+                Console.Clear();
+
+            }
 
             return menuChoice;
 
