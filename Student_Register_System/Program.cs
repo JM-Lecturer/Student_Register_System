@@ -110,7 +110,17 @@ namespace Student_Register_System
         static List<Students> RegStudents(List<Students> unassignedStudents)
         {
 
-            DisplayStudents(unassignedStudents);
+            int menuChoice = 0;
+            do
+            {
+
+                DisplayStudents(unassignedStudents);
+
+                string[] menuItems = { "-----------Register-----------", "Add New Student", "Return to Menu" };
+                menuChoice = RunMenu(menuItems);
+
+
+            } while (menuChoice != 2);
 
             return unassignedStudents;
 
