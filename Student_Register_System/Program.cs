@@ -18,7 +18,7 @@ namespace Student_Register_System
 
             public string sName { get { return m_sName; } set { m_sName = value; } }
 
-            public int ID { get { return m_age; } set { m_age = value; } }
+            public int Age { get { return m_age; } set { m_age = value; } }
 
             public Students(string fName, string sName, int age)
             {
@@ -38,7 +38,8 @@ namespace Student_Register_System
 
         }
 
-            static int RunMenu(string[] menuItems)
+        
+        static int RunMenu(string[] menuItems)
             {
 
                 Console.WriteLine(menuItems[0] + "\n");
@@ -55,7 +56,7 @@ namespace Student_Register_System
                 try
                 {
 
-                    Console.WriteLine("\nPlease enter your selection from the list provided: \n");
+                    Console.WriteLine("\nPlease enter your selection from the list provided:");
                     menuChoice = Convert.ToInt16(Console.ReadLine());
                     Console.Clear();
 
@@ -80,7 +81,40 @@ namespace Student_Register_System
 
             }
 
-            static void Main(string[] args)
+        static void DisplayStudents(List<Students> students)
+        {
+
+            if (students.Count == 0)
+            {
+
+                Console.WriteLine("There are currently no unassigned Students...\n");
+
+            }
+            else
+            {
+
+                for (int i = 0; i < students.Count; i++)
+                {
+
+                    Console.WriteLine("Name: " + students[i].GetFullName());
+                    Console.WriteLine("Age: " + students[i].Age);
+
+                }
+
+            }
+
+        }
+        
+        static List<Students> RegStudents(List<Students> unassignedStudents)
+        {
+
+            DisplayStudents(unassignedStudents);
+
+            return unassignedStudents;
+
+        }
+            
+        static void Main(string[] args)
             {
 
                 int menuChoice = 0;
@@ -91,12 +125,14 @@ namespace Student_Register_System
                     string[] menuItems = { "-----------Menu-----------", "Register Student", "Assign Student to Class", "Take Register", "Close" };
                     menuChoice = RunMenu(menuItems);
 
+                List<Students> unassignedStudents = new List<Students>();
+
                     switch (menuChoice)
                     {
 
                         case 1:
 
-                            Console.WriteLine("Register Students coming soon...");
+                            RegStudents(unassignedStudents);
                             break;
 
                         case 2:
