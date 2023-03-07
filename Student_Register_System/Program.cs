@@ -27,7 +27,7 @@
                 if (menuChoice < 1 || menuChoice >= menuItems.Length)
                 {
 
-                    throw new Exception();
+                    throw new Exception(); //Make sure to improve the error handling section for this area!!!!
 
                 }
 
