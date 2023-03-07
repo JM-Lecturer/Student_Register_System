@@ -93,11 +93,13 @@ namespace Student_Register_System
             else
             {
 
+                Console.WriteLine("-----------Students-----------");
+
                 for (int i = 0; i < students.Count; i++)
                 {
 
                     Console.WriteLine("Name: " + students[i].GetFullName());
-                    Console.WriteLine("Age: " + students[i].Age);
+                    Console.WriteLine("Age: " + students[i].Age + "\n");
 
                 }
 
@@ -126,8 +128,17 @@ namespace Student_Register_System
                     menuChoice = RunMenu(menuItems);
 
                 List<Students> unassignedStudents = new List<Students>();
+                //-------------------This code is for development purposes only, remove when complete-----------
 
-                    switch (menuChoice)
+                unassignedStudents.Add(new Students("Jay", "Miles", 29));
+                unassignedStudents.Add(new Students("Ben", "Hobbs", 28));
+                unassignedStudents.Add(new Students("Jon", "Barnett", 30));
+                unassignedStudents.Add(new Students("Will", "Price", 38));
+                unassignedStudents.Add(new Students("Jack", "Burnett", 24));
+
+                //----------------------------------------------------------------------------------------------
+
+                switch (menuChoice)
                     {
 
                         case 1:
