@@ -119,6 +119,65 @@ namespace Student_Register_System
                 string[] menuItems = { "-----------Register-----------", "Add New Student", "Return to Menu" };
                 menuChoice = RunMenu(menuItems);
 
+                if (menuChoice == 1)
+                {
+
+                    string fName = "";
+                    string sName = "";
+                    int age = 0;
+
+                    do
+                    {
+
+                        Console.WriteLine("Please enter the students first name:");
+                        fName = Console.ReadLine();
+                        Console.Clear();
+
+                        Console.WriteLine("Please enter the students second name:");
+                        sName = Console.ReadLine();
+                        Console.Clear();
+
+                        bool isValid = true;
+                        do
+                        {
+
+                            try
+                            {
+
+                                Console.WriteLine("Please enter the students age:");
+                                age = Convert.ToInt16(Console.ReadLine());
+                                Console.Clear();
+                                isValid = true; //Improve this validation section as well!!!!!
+
+                            }
+                            catch
+                            {
+
+                                Console.WriteLine("Error, Please try that again\n[Press Enter to Try Again]");
+                                Console.ReadLine();
+                                Console.Clear();
+                                isValid = false;
+
+                            }
+
+
+                        } while (isValid == false);
+
+                        Console.WriteLine("---------New Student Details---------\n\nFirst Name: " + fName + "\nSecond Name: " + sName + "\nAge: " + age + "\n");
+
+                        string[] newMenuItems = { "Is this information correct?", "Yes", "No" };
+                        menuChoice = RunMenu(newMenuItems);
+
+                    } while (menuChoice != 1);
+
+                    unassignedStudents.Add(new Students(fName, sName, age));
+
+                    Console.WriteLine("You have successfully added " + unassignedStudents[unassignedStudents.Count - 1].GetFullName() + "!\n[Press Enter to Continue]");
+                    Console.ReadLine();
+                    Console.Clear();
+
+                }
+
 
             } while (menuChoice != 2);
 
